@@ -20,6 +20,7 @@
 		<module>gateway</module>
         <module>destino</module>
 		<module>VueloReserva</module>
+        <module>alojamiento</module>
     </modules>
     <properties>
 		<java.version>17</java.version>
