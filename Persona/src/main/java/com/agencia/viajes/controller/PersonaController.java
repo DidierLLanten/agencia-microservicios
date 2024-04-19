@@ -26,4 +26,24 @@ public class PersonaController {
         return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", personaService.getAllPersonas()) );
     }
 
+    @GetMapping("/{idPersona}")
+    public ResponseEntity<Respuesta<Persona>> findById(@PathVariable int idPersona){
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", personaService.getPersonaById(idPersona)) );
+    }
+
+    @GetMapping("/cedula/{cedula}")
+    public ResponseEntity<Respuesta<Persona>> findById(@PathVariable String cedula){
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", personaService.getPersonaByCedula(cedula)) );
+    }
+
+    @PutMapping("/{idPersona}")
+    public ResponseEntity<Respuesta<Persona>> update(@PathVariable int idPersona, @RequestBody Persona persona){
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("La persona se modificó correctamente", personaService.updatePersona(idPersona, persona)));
+    }
+
+    @DeleteMapping("/{idPersona}")
+    public ResponseEntity<Respuesta<String>> delete(@PathVariable int idPersona){
+        personaService.deletePersona(idPersona);
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("Se eliminó correctamente") );
+    }
 }
