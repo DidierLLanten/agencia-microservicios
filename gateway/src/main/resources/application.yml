@@ -18,6 +18,10 @@ spring:
           uri: lb://destino-service
           predicates:
             - Path=/api/destino/**
+        - id: vuelo-reserva-service
+          uri: lb://vuelo-reserva-service
+          predicates:
+            - Path=/api/vuelo/**
 
 eureka:
   client:
