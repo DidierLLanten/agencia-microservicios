@@ -14,6 +14,10 @@ spring:
           uri: lb://persona-service
           predicates:
             - Path=/api/persona/**
+        - id: destino-service
+          uri: lb://destino-service
+          predicates:
+            - Path=/api/destino/**
 
 eureka:
   client:
