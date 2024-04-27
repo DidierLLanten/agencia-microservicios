@@ -4,6 +4,7 @@ volumes:
   mysql_database_personas:
   mysql_database_destinos:
   mysql_database_vueloreserva:
+  mysql_database_alojamientos:
 
 services:
 
@@ -28,6 +29,14 @@ services:
     image: mysql:8.0.34
     volumes:
       - mysql_database_vueloreserva:/var/lib/mysql
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=root1234
+      - MYSQL_ROOT_PASSWORD=root1234
+  mysql_database_alojamientos:
+    image: mysql:8.0.34
+    volumes:
+      - mysql_database_alojamientos:/var/lib/mysql
     environment:
       - MYSQL_USER=user
       - MYSQL_PASSWORD=root1234
@@ -94,6 +103,21 @@ services:
       - eureka-server
     environment:
       spring.datasource.url: jdbc:mysql://mysql_database_vueloreserva:3306/vueloreserva?createDatabaseIfNotExist=true
+      spring.datasource.username: root
+      spring.datasource.password: root1234
+      eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka
+    links:
+      - eureka-server
+
+  alojamientos:
+    image: agvi_alojamientos
+    build: ./alojamiento
+    restart: always
+    depends_on:
+      - mysql_database_alojamientos
+      - eureka-server
+    environment:
+      spring.datasource.url: jdbc:mysql://mysql_database_alojamientos:3306/alojamientos?createDatabaseIfNotExist=true
       spring.datasource.username: root
       spring.datasource.password: root1234
       eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka

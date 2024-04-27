@@ -26,8 +26,10 @@ spring:
           uri: lb://vuelo-reserva-service
           predicates:
             - Path=/api/reserva/**
-
-
+        - id: alojamientos-service
+          uri: lb://alojamientos-service
+          predicates:
+            - Path=/api/alojamiento/**
 eureka:
   client:
     register-with-eureka: true
