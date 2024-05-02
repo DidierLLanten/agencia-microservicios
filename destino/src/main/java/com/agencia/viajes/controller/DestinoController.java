@@ -45,17 +45,17 @@ public class DestinoController {
     }
 
     @GetMapping("/region/{region}")
-    public ResponseEntity<Respuesta<Destino>> findByRegion(@PathVariable Region region){
-        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", destinoService.getDestinoByRegion(region)) );
+    public ResponseEntity<Respuesta<List<Destino>>> findByRegions(@PathVariable Region region){
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", destinoService.getDestinosByRegion(region)) );
     }
 
     @GetMapping("/departamento/{departamento}")
-    public ResponseEntity<Respuesta<Destino>> findByDepartamento(@PathVariable Departamento departamento){
-        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", destinoService.getDestinoByDepartamento(departamento)) );
+    public ResponseEntity<Respuesta<List<Destino>>> findByDepartamento(@PathVariable Departamento departamento){
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", destinoService.getDestinosByDepartamento(departamento)) );
     }
 
     @GetMapping("/lugar/{lugar}")
-    public ResponseEntity<Respuesta<Destino>> findByLugar(@PathVariable String lugar){
-        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", destinoService.getDestinoByLugar(lugar)) );
+    public ResponseEntity<Respuesta<List<Destino>>> findByLugar(@PathVariable String lugar){
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", destinoService.getDestinosByLugar(lugar)) );
     }
 }

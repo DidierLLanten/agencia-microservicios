@@ -60,7 +60,7 @@ services:
     environment:
       eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka
     ports:
-      - "8082:8082"
+      - "8080:8080"
     links:
       - eureka-server
 

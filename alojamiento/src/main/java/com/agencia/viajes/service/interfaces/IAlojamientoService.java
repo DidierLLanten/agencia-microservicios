@@ -8,10 +8,11 @@ import java.util.Optional;
 public interface IAlojamientoService {
     public List<Alojamiento> getAllAlojamientos();
     public Alojamiento createAlojamiento(Alojamiento alojamiento);
-    public Optional<Alojamiento> getAlojamientoByIdResponsable(int idResponsable);
+    public List<Alojamiento> getAlojamientosByIdResponsable(int idResponsable);
     public Alojamiento getAlojamientoById(int id);
     public Alojamiento updateAlojamiento(int id, Alojamiento alojamiento);
     public void deleteAlojamiento(int id);
-    public Optional<Alojamiento> getAlojamientoByIdDestino(int idDestino);
-    public Alojamiento calificarAlojamiento(int idAlojamiento, int calificacion);
+    public List<Alojamiento> getAlojamientosByIdDestino(int idDestino);
+    public double calificarAlojamiento(int idAlojamiento, int calificacion);
+    public void comentarAlojamiento(int idAlojamiento, String comentario);
 }

@@ -28,8 +28,8 @@ public class AlojamientoController {
     }
 
     @GetMapping("/responsable/{idResponsable}")
-    public ResponseEntity<Respuesta<Optional<Alojamiento>>> findByIdResponsable(@PathVariable int idResponsable){
-        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", alojamientoService.getAlojamientoByIdResponsable(idResponsable)) );
+    public ResponseEntity<Respuesta<List<Alojamiento>>> findByIdResponsable(@PathVariable int idResponsable){
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", alojamientoService.getAlojamientosByIdResponsable(idResponsable)) );
     }
 
     @GetMapping("/{idAlojamiento}")
@@ -49,13 +49,19 @@ public class AlojamientoController {
     }
 
     @GetMapping("/destino/{idDestino}")
-    public ResponseEntity<Respuesta<Optional<Alojamiento>>> findByIdDestino(@PathVariable int idDestino){
-        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", alojamientoService.getAlojamientoByIdDestino(idDestino)) );
+    public ResponseEntity<Respuesta<List<Alojamiento>>> findByIdDestino(@PathVariable int idDestino){
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("", alojamientoService.getAlojamientosByIdDestino(idDestino)) );
     }
 
     @PutMapping("/calificar/{idAlojamiento}")
-    public ResponseEntity<Respuesta<Alojamiento>> calificar(@PathVariable int idAlojamiento, @RequestBody int calificacion){
+    public ResponseEntity<Respuesta<Double>> calificar(@PathVariable int idAlojamiento, @RequestBody int calificacion){
         return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("Alojamiento calificado", alojamientoService.calificarAlojamiento(idAlojamiento, calificacion)));
+    }
+
+    @PutMapping("/comentar/{idAlojamiento}")
+    public ResponseEntity<Respuesta<String>> calificar(@PathVariable int idAlojamiento, @RequestBody String comentario){
+        alojamientoService.comentarAlojamiento(idAlojamiento, comentario);
+        return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("Se agrego el comentario correctamente"));
     }
 }
 

@@ -46,17 +46,17 @@ public class DestinoService implements IDestinoService {
     }
 
     @Override
-    public Destino getDestinoByRegion(Region region) {
-        return destinoJPARepository.findDestinoByRegion(region).orElseThrow( () -> new DestinoNoEncontradoException("Destino no encontrado") );
+    public List<Destino> getDestinosByRegion(Region region) {
+        return destinoJPARepository.findDestinosByRegion(region);
     }
 
     @Override
-    public Destino getDestinoByDepartamento(Departamento departamento) {
-        return destinoJPARepository.findDestinoByDepartamento(departamento).orElseThrow( () -> new DestinoNoEncontradoException("Destino no encontrado") );
+    public List<Destino> getDestinosByDepartamento(Departamento departamento) {
+        return destinoJPARepository.findDestinosByDepartamento(departamento);
     }
 
     @Override
-    public Destino getDestinoByLugar(String lugar) {
-        return destinoJPARepository.findDestinoByLugar(lugar).orElseThrow( () -> new DestinoNoEncontradoException("Destino no encontrado") );
+    public List<Destino> getDestinosByLugar(String lugar) {
+        return destinoJPARepository.findDestinosByLugar(lugar);
     }
 }

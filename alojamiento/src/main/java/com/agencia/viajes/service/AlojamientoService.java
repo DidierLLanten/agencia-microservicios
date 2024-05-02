@@ -7,6 +7,7 @@ import com.agencia.viajes.service.interfaces.IAlojamientoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,17 @@ public class AlojamientoService implements IAlojamientoService {
 
     @Override
     public List<Alojamiento> getAllAlojamientos() {
-        return alojamientoJPARepository.findAll();
+
+        List<Alojamiento> alojamientos = alojamientoJPARepository.findAll();
+
+        // Modificar cada alojamiento para que solo incluya la calificación promedio
+        for (Alojamiento alojamiento : alojamientos) {
+            double calificacionPromedio = alojamiento.obtenerPromedioCalificacion();
+            alojamiento.setCalificaciones(new ArrayList<>()); // Limpiar la lista de calificaciones
+            alojamiento.getCalificaciones().add((int) calificacionPromedio); // Agregar la calificación promedio
+        }
+
+        return alojamientos;
     }
 
     @Override
@@ -27,8 +38,8 @@ public class AlojamientoService implements IAlojamientoService {
     }
 
     @Override
-    public Optional<Alojamiento> getAlojamientoByIdResponsable(int idResponsable) {
-        return alojamientoJPARepository.findAlojamientoByIdResponsable(idResponsable);
+    public List<Alojamiento> getAlojamientosByIdResponsable(int idResponsable) {
+        return alojamientoJPARepository.findAlojamientosByIdResponsable(idResponsable);
     }
 
     @Override
@@ -50,14 +61,26 @@ public class AlojamientoService implements IAlojamientoService {
     }
 
     @Override
-    public Optional<Alojamiento> getAlojamientoByIdDestino(int idDestino) {
-        return alojamientoJPARepository.findAlojamientoByIdDestino(idDestino);
+    public List<Alojamiento> getAlojamientosByIdDestino(int idDestino) {
+        return alojamientoJPARepository.findAlojamientosByIdDestino(idDestino);
     }
 
     @Override
-    public Alojamiento calificarAlojamiento(int idAlojamiento, int calificacion) {
-        Alojamiento currentAlojamiento = getAlojamientoById(idAlojamiento);
-        currentAlojamiento.setCalificacion(calificacion);
-        return alojamientoJPARepository.save(currentAlojamiento);
+    public double calificarAlojamiento(int idAlojamiento, int calificacion) {
+        //Alojamiento currentAlojamiento = getAlojamientoById(idAlojamiento);
+        //currentAlojamiento.setCalificacion(calificacion);
+        //return alojamientoJPARepository.save(currentAlojamiento);
+
+        Alojamiento alojamientoACalificar = getAlojamientoById(idAlojamiento);
+        alojamientoACalificar.agregarCalificacion(calificacion);
+        alojamientoJPARepository.save(alojamientoACalificar);
+        return alojamientoACalificar.obtenerPromedioCalificacion();
+    }
+
+    @Override
+    public void comentarAlojamiento(int idAlojamiento, String comentario) {
+        Alojamiento alojamiento = getAlojamientoById(idAlojamiento);
+        alojamiento.getComentarios().add(comentario);
+        alojamientoJPARepository.save(alojamiento);
     }
 }

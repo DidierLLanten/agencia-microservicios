@@ -12,7 +12,7 @@ public interface IDestinoService {
     public void deleteDestino(int id);
     public Destino getDestinoById(int id);
     public List<Destino> getAllDestinos();
-    public Destino getDestinoByRegion(Region region);
-    public Destino getDestinoByDepartamento(Departamento departamento);
-    public Destino getDestinoByLugar(String lugar);
+    public List<Destino> getDestinosByRegion(Region region);
+    public List<Destino> getDestinosByDepartamento(Departamento departamento);
+    public List<Destino> getDestinosByLugar(String lugar);
 }
