@@ -12,4 +12,6 @@ public interface IReservaService {
     public Reserva getReservaById(int id);
     public List<Reserva> getAllReservas();
     public List<Reserva> getReservasByidPersona(int idPersona);
+    public List<Reserva> getReservasByidAlojamiento(int idAlojamiento);
 }
+

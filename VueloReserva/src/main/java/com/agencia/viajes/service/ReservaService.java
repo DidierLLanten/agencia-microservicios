@@ -36,7 +36,7 @@ public class ReservaService implements IReservaService {
 
     @Override
     public Reserva getReservaById(int id) {
-        return reservaRepository.findReservaById(id).orElseThrow(()->new ReservaNoEncontradaException("La Reserva no existe"));
+        return reservaRepository.findById(id).orElseThrow( () -> new ReservaNoEncontradaException("La Reserva no existe") );
     }
 
     @Override
@@ -47,6 +47,11 @@ public class ReservaService implements IReservaService {
     @Override
     public List<Reserva> getReservasByidPersona(int idPersona) {
         return reservaRepository.findReservaByidPersona(idPersona);
+    }
+
+    @Override
+    public List<Reserva> getReservasByidAlojamiento(int idAlojamiento) {
+        return reservaRepository.findReservasByIdAlojamiento(idAlojamiento);
     }
 
 }

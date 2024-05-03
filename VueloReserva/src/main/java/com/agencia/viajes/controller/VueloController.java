@@ -1,6 +1,8 @@
 package com.agencia.viajes.controller;
 
 import com.agencia.viajes.dto.Respuesta;
+import com.agencia.viajes.dto.RutaVuelo;
+import com.agencia.viajes.model.Reserva;
 import com.agencia.viajes.model.Vuelo;
 import com.agencia.viajes.service.VueloService;
 import lombok.RequiredArgsConstructor;
@@ -43,4 +45,18 @@ public class VueloController {
         return ResponseEntity.status(HttpStatus.OK).body(new Respuesta<>("Se eliminó el vuelo correctamente"));
     }
 
+    @GetMapping("/ciudadOrigen/{ciudadOrigen}")
+    public ResponseEntity<Respuesta<List<Vuelo>>> findVuelosByCiudadOrigen(@PathVariable String ciudadOrigen) {
+        return ResponseEntity.status(HttpStatus.OK).body(new Respuesta<>("",vueloService.getVuelosByOrigen(ciudadOrigen)));
+    }
+
+    @GetMapping("/ciudadDestino/{ciudadDestino}")
+    public ResponseEntity<Respuesta<List<Vuelo>>> findVuelosByCiudadDestino(@PathVariable String ciudadDestino) {
+        return ResponseEntity.status(HttpStatus.OK).body(new Respuesta<>("",vueloService.getVuelosByDestino(ciudadDestino)));
+    }
+
+    @GetMapping("/ruta")
+    public ResponseEntity<Respuesta<List<Vuelo>>> findVuelosByRutaVuelo(@RequestBody RutaVuelo rutaVuelo) {
+        return ResponseEntity.status(HttpStatus.OK).body(new Respuesta<>("",vueloService.getVuelosByOrigenAndDestino(rutaVuelo)));
+    }
 }

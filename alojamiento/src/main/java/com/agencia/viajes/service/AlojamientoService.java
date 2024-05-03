@@ -26,7 +26,7 @@ public class AlojamientoService implements IAlojamientoService {
         for (Alojamiento alojamiento : alojamientos) {
             double calificacionPromedio = alojamiento.obtenerPromedioCalificacion();
             alojamiento.setCalificaciones(new ArrayList<>()); // Limpiar la lista de calificaciones
-            alojamiento.getCalificaciones().add((int) calificacionPromedio); // Agregar la calificación promedio
+            alojamiento.getCalificaciones().add(calificacionPromedio); // Agregar la calificación promedio
         }
 
         return alojamientos;

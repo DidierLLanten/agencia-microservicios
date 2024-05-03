@@ -14,6 +14,8 @@ public class Vuelo {
     private int id;
 
     private String aerolinea;
+    private String ciudadOrigen;
+    private String ciudadDestino;
 
     private Date fechaIda;
 

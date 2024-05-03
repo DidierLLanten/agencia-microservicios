@@ -1,5 +1,6 @@
 package com.agencia.viajes.service;
 
+import com.agencia.viajes.dto.RutaVuelo;
 import com.agencia.viajes.model.Vuelo;
 import com.agencia.viajes.repository.VueloRepository;
 import com.agencia.viajes.service.exceptions.VueloNoEncontradoException;
@@ -35,11 +36,26 @@ public class VueloService implements IVueloService {
 
     @Override
     public Vuelo getVueloById(int id) {
-        return vueloRepository.findVueloById(id).orElseThrow(()->new VueloNoEncontradoException("El vuelo no existe"));
+        return vueloRepository.findById(id).orElseThrow(()->new VueloNoEncontradoException("El vuelo no existe"));
     }
 
     @Override
     public List<Vuelo> getAllVuelos() {
         return vueloRepository.findAll();
+    }
+
+    @Override
+    public List<Vuelo> getVuelosByOrigen(String ciudadOrigen) {
+        return vueloRepository.findByCiudadOrigen(ciudadOrigen);
+    }
+
+    @Override
+    public List<Vuelo> getVuelosByDestino(String ciudadDestino) {
+        return vueloRepository.findByCiudadDestino(ciudadDestino);
+    }
+
+    @Override
+    public List<Vuelo> getVuelosByOrigenAndDestino(RutaVuelo rutaVuelo) {
+        return vueloRepository.findByCiudadOrigenAndCiudadDestino(rutaVuelo.getCiudadOrigen(), rutaVuelo.getCiudadDestino());
     }
 }

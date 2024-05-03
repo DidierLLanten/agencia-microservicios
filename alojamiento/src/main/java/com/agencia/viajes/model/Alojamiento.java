@@ -18,7 +18,6 @@ public class Alojamiento {
     private String nombre;
     private int idDestino;
     private String ubicacion;
-    // private int calificacion;
     private String caracteristicas;
     private int capacidad;
     private int precio;
@@ -36,24 +35,22 @@ public class Alojamiento {
     @ElementCollection
     @CollectionTable(name="calificaciones", joinColumns=@JoinColumn(name="alojamiento_id"))
     @Column(name="calificacion")
-    private List<Integer> calificaciones = new ArrayList<>();
+    private List<Double> calificaciones = new ArrayList<>();
 
     public double obtenerPromedioCalificacion() {
-        // Verificar que haya al menos una calificación
         if (calificaciones.isEmpty()) {
             return 0;
         }
 
         // Calcular la suma de todas las calificaciones
-        int sumaCalificaciones = calificaciones.stream()
-                .mapToInt(Integer::intValue)
+        double sumaCalificaciones = calificaciones.stream()
+                .mapToDouble(Double::doubleValue)
                 .sum();
-
         // Calcular el promedio
-        return (double) sumaCalificaciones / calificaciones.size();
+        return sumaCalificaciones / calificaciones.size();
     }
 
-    public void agregarCalificacion(int calificacion) {
+    public void agregarCalificacion(double calificacion) {
         calificaciones.add(calificacion);
     }
 

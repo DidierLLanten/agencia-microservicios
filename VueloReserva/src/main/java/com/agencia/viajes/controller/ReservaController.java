@@ -47,4 +47,9 @@ public class ReservaController {
     public ResponseEntity<Respuesta<List<Reserva>>> findReservasByResponsable(@PathVariable int idResponsable) {
         return ResponseEntity.status(HttpStatus.OK).body(new Respuesta<>("",reservaService.getReservasByidPersona(idResponsable)));
     }
+
+    @GetMapping("/alojamiento/{idAlojamiento}")
+    public ResponseEntity<Respuesta<List<Reserva>>> findReservasByIdAlojamientos(@PathVariable int idAlojamiento) {
+        return ResponseEntity.status(HttpStatus.OK).body(new Respuesta<>("",reservaService.getReservasByidAlojamiento(idAlojamiento)));
+    }
 }
