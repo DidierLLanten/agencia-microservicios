@@ -27,10 +27,9 @@ public class Alojamiento {
     @Column(name="foto")
     private List<String> fotos;
 
-    @ElementCollection
-    @CollectionTable(name="comentarios", joinColumns=@JoinColumn(name="alojamiento_id"))
-    @Column(name="comentario")
-    private List<String> comentarios;
+    @OneToMany()
+    @JoinColumn(name = "id_comentario")
+    private List<Comentario> comentarios;
 
     @ElementCollection
     @CollectionTable(name="calificaciones", joinColumns=@JoinColumn(name="alojamiento_id"))

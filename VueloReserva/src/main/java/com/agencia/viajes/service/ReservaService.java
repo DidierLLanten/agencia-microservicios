@@ -4,6 +4,7 @@ import com.agencia.viajes.model.Reserva;
 import com.agencia.viajes.repository.ReservaRepository;
 import com.agencia.viajes.service.exceptions.ReservaNoEncontradaException;
 import com.agencia.viajes.service.interfaces.IReservaService;
+import com.agencia.viajes.service.interfaces.IVueloService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class ReservaService implements IReservaService {
 
     private final ReservaRepository reservaRepository;
+    private final IVueloService vueloService;
 
     @Override
     public Reserva createReserva(Reserva reserva) {
@@ -23,6 +25,7 @@ public class ReservaService implements IReservaService {
 
     @Override
     public Reserva updateReserva(int id,Reserva reserva){
+        vueloService.getVueloById(reserva.getVuelo().getId());
         Reserva currentReserva = getReservaById(id);
         reserva.setId(currentReserva.getId());
         return reservaRepository.save(reserva);

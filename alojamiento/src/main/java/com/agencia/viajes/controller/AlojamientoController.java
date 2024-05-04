@@ -2,6 +2,7 @@ package com.agencia.viajes.controller;
 
 import com.agencia.viajes.dto.Respuesta;
 import com.agencia.viajes.model.Alojamiento;
+import com.agencia.viajes.model.Comentario;
 import com.agencia.viajes.service.interfaces.IAlojamientoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -59,7 +60,7 @@ public class AlojamientoController {
     }
 
     @PutMapping("/comentar/{idAlojamiento}")
-    public ResponseEntity<Respuesta<String>> calificar(@PathVariable int idAlojamiento, @RequestBody String comentario){
+    public ResponseEntity<Respuesta<String>> calificar(@PathVariable int idAlojamiento, @RequestBody Comentario comentario){
         alojamientoService.comentarAlojamiento(idAlojamiento, comentario);
         return ResponseEntity.status(HttpStatus.OK).body( new Respuesta<>("Se agrego el comentario correctamente"));
     }

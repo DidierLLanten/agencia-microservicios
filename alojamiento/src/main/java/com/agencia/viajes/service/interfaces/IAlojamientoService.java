@@ -1,6 +1,7 @@
 package com.agencia.viajes.service.interfaces;
 
 import com.agencia.viajes.model.Alojamiento;
+import com.agencia.viajes.model.Comentario;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,5 +15,5 @@ public interface IAlojamientoService {
     public void deleteAlojamiento(int id);
     public List<Alojamiento> getAlojamientosByIdDestino(int idDestino);
     public double calificarAlojamiento(int idAlojamiento, int calificacion);
-    public void comentarAlojamiento(int idAlojamiento, String comentario);
+    public void comentarAlojamiento(int idAlojamiento, Comentario comentario);
 }

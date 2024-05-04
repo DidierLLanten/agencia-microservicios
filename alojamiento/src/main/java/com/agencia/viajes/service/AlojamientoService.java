@@ -1,9 +1,11 @@
 package com.agencia.viajes.service;
 
 import com.agencia.viajes.model.Alojamiento;
+import com.agencia.viajes.model.Comentario;
 import com.agencia.viajes.repository.IAlojamientoJPARepository;
 import com.agencia.viajes.service.exceptions.AlojamientoNoEncontradoException;
 import com.agencia.viajes.service.interfaces.IAlojamientoService;
+import com.agencia.viajes.service.interfaces.IComentarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import java.util.Optional;
 public class AlojamientoService implements IAlojamientoService {
 
     private final IAlojamientoJPARepository alojamientoJPARepository;
+    private final IComentarioService comentarioService;
 
     @Override
     public List<Alojamiento> getAllAlojamientos() {
@@ -67,10 +70,6 @@ public class AlojamientoService implements IAlojamientoService {
 
     @Override
     public double calificarAlojamiento(int idAlojamiento, int calificacion) {
-        //Alojamiento currentAlojamiento = getAlojamientoById(idAlojamiento);
-        //currentAlojamiento.setCalificacion(calificacion);
-        //return alojamientoJPARepository.save(currentAlojamiento);
-
         Alojamiento alojamientoACalificar = getAlojamientoById(idAlojamiento);
         alojamientoACalificar.agregarCalificacion(calificacion);
         alojamientoJPARepository.save(alojamientoACalificar);
@@ -78,9 +77,15 @@ public class AlojamientoService implements IAlojamientoService {
     }
 
     @Override
-    public void comentarAlojamiento(int idAlojamiento, String comentario) {
+    public void comentarAlojamiento(int idAlojamiento, Comentario comentario) {
         Alojamiento alojamiento = getAlojamientoById(idAlojamiento);
-        alojamiento.getComentarios().add(comentario);
+        Comentario comentarioGuardar = comentarioService.createComentario(comentario);
+        List<Comentario> comentarios = alojamiento.getComentarios();
+        if (comentarios == null) {
+            comentarios = new ArrayList<>();
+            alojamiento.setComentarios(comentarios);
+        }
+        comentarios.add(comentarioGuardar);
         alojamientoJPARepository.save(alojamiento);
     }
 }
