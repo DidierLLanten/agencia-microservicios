@@ -48,4 +48,9 @@ public class PersonaService implements IPersonaService {
     public List<Persona> getAllPersonas() {
         return personaJPARepository.findAll();
     }
+
+    @Override
+    public Boolean validarPersonaById(int idPersona) {
+            return personaJPARepository.existsById(idPersona);
+    }
 }

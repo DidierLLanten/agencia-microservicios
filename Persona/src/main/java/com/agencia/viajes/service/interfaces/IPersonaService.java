@@ -12,4 +12,5 @@ public interface IPersonaService {
     public Persona getPersonaById(int id);
     public Persona getPersonaByCedula(String cedula);
     public List<Persona> getAllPersonas();
+    public Boolean validarPersonaById(int idPersona);
 }

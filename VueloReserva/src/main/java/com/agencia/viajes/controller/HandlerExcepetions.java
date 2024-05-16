@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class HandlerExcepetions {
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Respuesta<String>> capturarException(Exception e){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body( new Respuesta<>(e.getMessage()) );
+    }
+
     @ExceptionHandler(VueloNoEncontradoException.class)
     public ResponseEntity<Respuesta<String>> capturarVueloNoEncontradoException(VueloNoEncontradoException e){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body( new Respuesta<>(e.getMessage()) );
