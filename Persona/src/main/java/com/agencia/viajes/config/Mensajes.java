@@ -18,4 +18,11 @@ public class Mensajes {
         return buscado;
     }
 
+    @RabbitListener(queues = Constantes.QUEUE_2 )
+    public Object receiveMessageAndReplyResponsable(int idPersona) {
+        boolean buscado = personaService.validarPersonaById(idPersona);
+        System.out.println("Buscado: (persona-service) " + buscado);
+        return buscado;
+    }
+
 }

@@ -18,6 +18,10 @@ public class MessagingConfig {
     public Queue queue() {
         return new Queue(Constantes.QUEUE);
     }
+    @Bean
+    public Queue queue2() {
+        return new Queue(Constantes.QUEUE_2);
+    }
 
 
     @Bean
@@ -30,7 +34,10 @@ public class MessagingConfig {
     public Binding binding(Queue queue, TopicExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(Constantes.ROUTING_KEY);
     }
-
+    @Bean
+    public Binding binding2(Queue queue, TopicExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with(Constantes.ROUTING_KEY_2);
+    }
 
     @Bean
     public MessageConverter converter() {
