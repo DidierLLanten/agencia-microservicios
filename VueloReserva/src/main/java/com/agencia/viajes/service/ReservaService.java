@@ -11,8 +11,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.Objects;;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +26,7 @@ public class ReservaService implements IReservaService {
     public Reserva createReserva(Reserva reserva) {
 
         validarPersona(reserva.getIdPersona());
+        validarAlojamiento(reserva.getIdAlojamiento());
         return reservaRepository.save(reserva);
     }
 
@@ -74,6 +74,19 @@ public class ReservaService implements IReservaService {
         boolean existe = (Boolean) respuesta;
         if(!existe){
             throw new RuntimeException("La persona con id: "+idPersona+" no existe");
+        }
+    }
+
+    private void validarAlojamiento(int idAlojamiento){
+        Object respuesta = rabbitTemplate.convertSendAndReceive(Constantes.EXCHANGE, Constantes.ROUTING_KEY_2, idAlojamiento);
+
+        if(Objects.isNull(respuesta)){
+            throw new RuntimeException("Hubo un error recuperando la información del alojamiento");
+        }
+
+        boolean existe = (Boolean) respuesta;
+        if(!existe){
+            throw new RuntimeException("El alojamiento con id: "+idAlojamiento+" no existe");
         }
     }
 

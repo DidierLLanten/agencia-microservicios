@@ -15,10 +15,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MessagingConfig {
     @Bean
-    public Queue queue() {
-        return new Queue(Constantes.QUEUE);
-    }
-    @Bean
     public Queue queue2() {
         return new Queue(Constantes.QUEUE_2);
     }
@@ -31,12 +27,8 @@ public class MessagingConfig {
 
 
     @Bean
-    public Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(Constantes.ROUTING_KEY);
-    }
-    @Bean
-    public Binding binding2(Queue queue2, TopicExchange exchange) {
-        return BindingBuilder.bind(queue2).to(exchange).with(Constantes.ROUTING_KEY_2);
+    public Binding binding2(Queue queue, TopicExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with(Constantes.ROUTING_KEY_2);
     }
 
 

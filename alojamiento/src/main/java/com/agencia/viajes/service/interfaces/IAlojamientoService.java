@@ -16,4 +16,5 @@ public interface IAlojamientoService {
     public List<Alojamiento> getAlojamientosByIdDestino(int idDestino);
     public double calificarAlojamiento(int idAlojamiento, int calificacion);
     public void comentarAlojamiento(int idAlojamiento, Comentario comentario);
+    public Boolean validarAlojamientoById(int idAlojamiento);
 }

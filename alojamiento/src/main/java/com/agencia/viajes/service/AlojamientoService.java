@@ -88,4 +88,9 @@ public class AlojamientoService implements IAlojamientoService {
         comentarios.add(comentarioGuardar);
         alojamientoJPARepository.save(alojamiento);
     }
+
+    @Override
+    public Boolean validarAlojamientoById(int idAlojamiento) {
+        return alojamientoJPARepository.existsById(idAlojamiento);
+    }
 }
