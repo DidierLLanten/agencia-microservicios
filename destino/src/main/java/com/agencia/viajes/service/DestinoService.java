@@ -59,4 +59,9 @@ public class DestinoService implements IDestinoService {
     public List<Destino> getDestinosByLugar(String lugar) {
         return destinoJPARepository.findDestinosByLugar(lugar);
     }
+
+    @Override
+    public Boolean validarDestinoById(int idPersona) {
+        return destinoJPARepository.existsById(idPersona);
+    }
 }

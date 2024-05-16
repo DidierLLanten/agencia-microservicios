@@ -15,4 +15,5 @@ public interface IDestinoService {
     public List<Destino> getDestinosByRegion(Region region);
     public List<Destino> getDestinosByDepartamento(Departamento departamento);
     public List<Destino> getDestinosByLugar(String lugar);
+    public Boolean validarDestinoById(int idPersona);
 }
