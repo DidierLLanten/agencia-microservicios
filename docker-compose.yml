@@ -5,6 +5,7 @@ volumes:
   mysql_database_destinos:
   mysql_database_vueloreserva:
   mysql_database_alojamientos:
+  keycloak_data:
 
 services:
 
@@ -59,6 +60,8 @@ services:
       - personas
     environment:
       eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka
+      spring.security.oauth2.resourceserver.jwt.issuer-uri: http://keycloak:9090/realms/tutorial-api
+      spring.security.oauth2.resourceserver.jwt.jwk-set-uri: http://keycloak:9090/realms/tutorial-api/protocol/openid-connect/certs
     ports:
       - "8080:8080"
     links:
@@ -142,3 +145,14 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:21.0.2
+    ports:
+      - "9090:9090"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    volumes:
+      - keycloak_data:/opt/keycloak/data/
+    command: [ "start-dev", "--http-port=9090" ]

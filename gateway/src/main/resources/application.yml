@@ -30,6 +30,24 @@ spring:
           uri: lb://alojamientos-service
           predicates:
             - Path=/api/alojamiento/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/tutorial-api
+          jwk-set-uri: http://localhost:9090/realms/tutorial-api/protocol/openid-connect/certs
+
+jwt:
+  auth:
+    converter:
+      resource-id: springboot-keycloak-client
+      principal-attribute: preferred_username
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
 eureka:
   client:
     register-with-eureka: true
