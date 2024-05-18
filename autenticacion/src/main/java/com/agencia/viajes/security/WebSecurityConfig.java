@@ -12,17 +12,12 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 @EnableWebFluxSecurity
 public class WebSecurityConfig {
 
-    public static final String ADMIN = "admin";
-    public static final String USER = "user";
     private final JwtAuthConverter jwtAuthConverter;
 
     @Bean
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
         http.authorizeExchange(e ->
-                e.pathMatchers("/api/test/anonymous").permitAll()
-                        .pathMatchers("/api/test/admin").hasRole(ADMIN)
-                        .pathMatchers("/api/test/user").hasAnyRole(ADMIN, USER)
-                        .pathMatchers("/api/auth/**").permitAll()
+                e.pathMatchers("/**").permitAll()
                         .anyExchange().authenticated());
 
         http.oauth2ResourceServer()
@@ -32,4 +27,3 @@ public class WebSecurityConfig {
         return http.build();
     }
 }
-

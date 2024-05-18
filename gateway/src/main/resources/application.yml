@@ -30,6 +30,10 @@ spring:
           uri: lb://alojamientos-service
           predicates:
             - Path=/api/alojamiento/**
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
   security:
     oauth2:
       resourceserver:

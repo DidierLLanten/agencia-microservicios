@@ -135,6 +135,22 @@ services:
     links:
       - eureka-server
 
+  autenticacion:
+    image: agvi_autenticacion
+    build: ./autenticacion
+    restart: always
+    depends_on:
+      - eureka-server
+      - keycloak
+      - gateway
+    environment:
+      eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka
+      spring.security.oauth2.resourceserver.jwt.issuer-uri: http://keycloak:9090/realms/tutorial-api
+      spring.security.oauth2.resourceserver.jwt.jwk-set-uri: http://keycloak:9090/realms/tutorial-api/protocol/openid-connect/certs
+      keycloack.admin-url: http://keycloak:9090/admin/realms/tutorial-api
+    links:
+      - eureka-server
+
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbit-mq

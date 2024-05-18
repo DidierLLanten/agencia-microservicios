@@ -21,6 +21,7 @@
         <module>destino</module>
 		<module>VueloReserva</module>
         <module>alojamiento</module>
+        <module>autenticacion</module>
     </modules>
     <properties>
 		<java.version>17</java.version>
