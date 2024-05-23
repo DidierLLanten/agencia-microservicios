@@ -22,6 +22,11 @@ public class WebSecurityConfig {
                 e.pathMatchers("/api/test/anonymous").permitAll()
                         .pathMatchers("/api/test/admin").hasRole(ADMIN)
                         .pathMatchers("/api/test/user").hasAnyRole(ADMIN, USER)
+                        .pathMatchers("/api/persona/**").hasRole(ADMIN)
+                        .pathMatchers("/api/destino/**").hasRole(ADMIN)
+                        .pathMatchers("/api/alojamiento/**").hasRole(ADMIN)
+                        .pathMatchers("/api/vuelo/**").hasRole(ADMIN)
+                        .pathMatchers("/api/reserva/**").hasRole(USER)
                         .pathMatchers("/api/auth/**").permitAll()
                         .anyExchange().authenticated());
 
