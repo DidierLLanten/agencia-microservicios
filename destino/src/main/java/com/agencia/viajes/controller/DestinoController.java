@@ -6,6 +6,7 @@ import com.agencia.viajes.model.Destino;
 import com.agencia.viajes.model.Region;
 import com.agencia.viajes.service.interfaces.IDestinoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DestinoController {
     private final IDestinoService destinoService;
+
+/*    @Value("${app.mensaje}")
+    private String mensaje;
+    @GetMapping("/test-prop")
+    public String getTestProperty(){
+        return mensaje;
+    }*/
+
 
     @PostMapping
     public ResponseEntity<Respuesta<Destino>> save(@RequestBody Destino destino){
