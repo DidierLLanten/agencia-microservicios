@@ -1,0 +1,1928 @@
+{
+	"info": {
+		"_postman_id": "0cd26a26-b94a-4b38-8dc9-9a1ce9fa4968",
+		"name": "AgenciaViajes-Micro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17766096",
+		"_collection_link": "https://blue-astronaut-9736-1.postman.co/workspace/AprendiendoSpringAngular~c546864f-0f6f-4eb0-8ec5-40759590b605/collection/17766096-0cd26a26-b94a-4b38-8dc9-9a1ce9fa4968?action=share&source=collection_link&creator=17766096"
+	},
+	"item": [
+		{
+			"name": "Persona",
+			"item": [
+				{
+					"name": "GetAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/persona",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"persona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": \"123\",\r\n    \"nombre\": \"Prueba0001\",\r\n    \"telefono\": \"3110030088\",\r\n    \"ciudad\": \"Armenia\",\r\n    \"email\": \"prueba0001@gmail.com\",\r\n    \"contraseña\": \"abc123\",\r\n    \"rol\": \"CLIENT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/persona",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"persona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByCed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/persona/cedula/1234",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"persona",
+								"cedula",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/persona/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"persona",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/persona/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"persona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\": \"999\",\r\n    \"nombre\": \"Prueba0000\",\r\n    \"telefono\": \"3110030088\",\r\n    \"ciudad\": \"Armenia\",\r\n    \"email\": \"prueba0001@gmail.com\",\r\n    \"contraseña\": \"abc123\",\r\n    \"rol\": \"CLIENT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/persona/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"persona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Destino",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/destino",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"destino"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"region\": \"ANDINA\",\r\n    \"departamento\": \"QUINDIO\",    \r\n    \"lugar\": \"Circasia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/destino",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"destino"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/destino/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"destino",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"region\": \"ANDINA\",\r\n    \"departamento\": \"CESAR\",\r\n    \"lugar\": \"rio verde\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/destino/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"destino",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/destino/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"destino",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByRegion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/destino/region/ANDINA",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"destino",
+								"region",
+								"ANDINA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByDepartamento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/destino/departamento/QUINDIO",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"destino",
+								"departamento",
+								"QUINDIO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lugar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/destino/lugar/Rio verde",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"destino",
+								"lugar",
+								"Rio verde"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alojamiento",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idResponsable\": 1,\r\n    \"nombre\": \"Hotel Japones\",\r\n    \"idDestino\": 1,\r\n    \"ubicacion\":  \"latitud: 4.5375 longitud: -75.6753\",\r\n    \"calificacion\": 8,\r\n    \"caracteristicas\": \"Muy frio y con vista a la cordillera\",\r\n    \"capacidad\": 25,\r\n    \"precio\": 830000,\r\n    \"fotos\": [\"Foto 1\", \"Foto 2\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByDueño",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento/responsable/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento",
+								"responsable",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idResponsable\": 2,\r\n    \"nombre\": \"Editado\",\r\n    \"idDestino\": 1,\r\n    \"ubicacion\": \"latitud: 6.5375 longitud: -45.6753\",\r\n    \"calificacion\": 3,\r\n    \"caracteristicas\": \"Todo barato\",\r\n    \"capacidad\": 5,\r\n    \"precio\": 300,\r\n    \"fotos\": [\"non2\"],\r\n    \"comentarios\": [\"todsl\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByDestino",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento/destino/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento",
+								"destino",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n4\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento/calificar/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento",
+								"calificar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comentar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAutor\": 1,\r\n    \"texto\": \"Probando con id autor existente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/alojamiento/comentar/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alojamiento",
+								"comentar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reserva",
+			"item": [
+				{
+					"name": "Vuelo",
+					"item": [
+						{
+							"name": "All",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/vuelo",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"vuelo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"aerolinea\": \"Avianca\",\r\n    \"ciudadOrigen\": \"Armenia\",\r\n    \"ciudadDestino\": \"Pereira\",\r\n    \"fechaIda\": \"2024-04-02T12:00:00\",\r\n    \"fechaVuelta\": \"2024-20-02T12:00:00\",\r\n    \"precio\": 750000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/vuelo",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"vuelo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ByOrigen",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/vuelo/ciudadOrigen/Armenia",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"vuelo",
+										"ciudadOrigen",
+										"Armenia"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ByDestino",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/vuelo/ciudadDestino/Pereira",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"vuelo",
+										"ciudadDestino",
+										"Pereira"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ByRuta",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ciudadOrigen\": \"Armenia\",\r\n    \"ciudadDestino\": \"Pereira\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/vuelo/ruta",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"vuelo",
+										"ruta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/vuelo/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"vuelo",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"aerolinea\": \"Easy Fly\",\r\n    \"ciudadOrigen\": \"Manizales\",\r\n    \"ciudadDestino\": \"Cartagena\",\r\n    \"fechaIda\": \"2024-06-06T12:00:00\",\r\n    \"fechaVuelta\": \"2024-12-06T12:00:00\",\r\n    \"precio\": 1200000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/vuelo/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"vuelo",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/vuelo/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"vuelo",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/reserva",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reserva"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPersona\": 1,\r\n    \"vuelo\": {\"id\": 99},\r\n    \"idAlojamiento\": 1,\r\n    \"duracion\": 5,\r\n    \"fechaReserva\": \"2024-05-02T12:00:00\",\r\n    \"ocupantes\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/reserva",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reserva"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByResponsable",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/reserva/responsable/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reserva",
+								"responsable",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByAlojamiento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/reserva/alojamiento/0",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reserva",
+								"alojamiento",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/reserva/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reserva",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPersona\": 2,\r\n    \"vuelo\": {\"id\": 2},\r\n    \"idAlojamiento\": 2,\r\n    \"duracion\": 5,\r\n    \"fechaReserva\": \"2024-05-02T12:00:00\",\r\n    \"ocupantes\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/reserva/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reserva",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/reserva/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reserva",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "Anonymous",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/test/anonymous",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test",
+								"anonymous"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/test/user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/test/admin",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"test",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticacion",
+			"item": [
+				{
+					"name": "SignIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parsear la respuesta JSON\r",
+									"const responseJson = pm.response.json();\r",
+									"\r",
+									"// Almacenar el access token y el refresh token en variables de entorno\r",
+									"pm.environment.set(\"access_token\", responseJson.dato.accessToken);\r",
+									"pm.environment.set(\"refresh_token\", responseJson.dato.refreshToken);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"username\": \"normaluser\",\r\n    // \"username\": \"01colaborador\",\r\n    \"username\": \"globaladmin\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signin",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RefreshToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();\r",
+									"pm.environment.set(\"access_token\", responseJson.dato.accessToken);\r",
+									"pm.environment.set(\"refresh_token\", responseJson.dato.refreshToken);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"{{refresh_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/refresh",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignUp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"14user\",\r\n    \"lastName\": \"Test\",\r\n    \"email\": \"14user@test.com\",\r\n    \"emailVerified\": true,\r\n    \"username\": \"014test\",\r\n    \"enabled\": true,\r\n    \"credentials\": [\r\n        {\r\n            \"type\": \"Password\",\r\n            \"value\": \"password\",\r\n            \"temporary\": false\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarUsuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/auth/buscar-user/globaladmin",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"buscar-user",
+								"globaladmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateColaborador",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"1colaborador\",\r\n    \"lastName\": \"Test\",\r\n    \"email\": \"1colaborador@test.com\",\r\n    \"emailVerified\": true,\r\n    \"username\": \"01colaborador\",\r\n    \"enabled\": true,\r\n    \"credentials\": [\r\n        {\r\n            \"type\": \"Password\",\r\n            \"value\": \"password\",\r\n            \"temporary\": false\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/create-collaborator",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"create-collaborator"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Keycloak",
+			"item": [
+				{
+					"name": "Autenticacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "normalUser",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://keycloak:9090/realms/tutorial-api/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"realms",
+								"tutorial-api",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"id\":\"5\",\r\n    // \"origin\": \"Buscar ciudad\",\r\n    \"firstName\": \"8user\",\r\n    \"lastName\": \"Test\",\r\n    \"email\": \"8user@test.com\",\r\n    \"emailVerified\": true,\r\n    \"username\": \"08test\",\r\n    \"enabled\": true,\r\n    // \"realmRoles\": [\"app_user\"],\r\n    \"credentials\": [\r\n        {\r\n            \"type\": \"Password\",\r\n            \"value\": \"password\",\r\n            \"temporary\": false\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SetPassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"value\":\"password2\",\r\n    \"temporary\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users/{{user_found}}/reset-password",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users",
+								"{{user_found}}",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pruebas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users/{{id_admin}}/sessions",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users",
+								"{{id_admin}}",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarUsuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const users = pm.response.json();\r",
+									"\r",
+									"// Verificar si se encontraron usuarios\r",
+									"if (users.length > 0) {\r",
+									"    // Almacenar el ID del primer usuario encontrado en la variable de entorno user_found\r",
+									"    pm.environment.set(\"user_found\", users[0].id);\r",
+									"} else {\r",
+									"    // Si no se encontraron usuarios, imprimir un mensaje de error en la consola de Postman\r",
+									"    console.error(\"No se encontraron usuarios.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users?username=globaladmin",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "globaladmin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarUsuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"5\",\r\n    \"firstName\": \"5user cambio nombre\",\r\n    \"realmRoles\": [\"app_user\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users/{{user_found}}",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users",
+								"{{user_found}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NOsirve-AgregarRol",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"name\": \"user\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users/b97cec0a-0a8b-443d-8bef-08bd9712fbb4/role-mappings/realm",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users",
+								"b97cec0a-0a8b-443d-8bef-08bd9712fbb4",
+								"role-mappings",
+								"realm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarRolesDelUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users/{{id_admin}}/role-mappings/realm",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users",
+								"{{id_admin}}",
+								"role-mappings",
+								"realm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RefreshToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();\r",
+									"pm.environment.set(\"access_token\", response.access_token);\r",
+									"pm.environment.set(\"refresh_token\", response.refresh_token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "{{refresh_token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://keycloak:9090/realms/tutorial-api/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"realms",
+								"tutorial-api",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AsignarRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"43409e27-adc9-44dd-8b39-9b29b0c6e620\",\r\n        \"name\": \"app_user\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://keycloak:9090/admin/realms/tutorial-api/users/b97cec0a-0a8b-443d-8bef-08bd9712fbb4/role-mappings/realm",
+							"protocol": "http",
+							"host": [
+								"keycloak"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"realms",
+								"tutorial-api",
+								"users",
+								"b97cec0a-0a8b-443d-8bef-08bd9712fbb4",
+								"role-mappings",
+								"realm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

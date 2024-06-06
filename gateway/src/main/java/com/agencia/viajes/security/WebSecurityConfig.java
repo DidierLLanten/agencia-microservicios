@@ -14,20 +14,21 @@ public class WebSecurityConfig {
 
     public static final String ADMIN = "admin";
     public static final String USER = "user";
+    public static final String COLLABORATOR = "collaborator";
     private final JwtAuthConverter jwtAuthConverter;
 
     @Bean
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
         http.authorizeExchange(e ->
                 e.pathMatchers("/api/test/anonymous").permitAll()
+                        .pathMatchers("/api/auth/**").permitAll()
                         .pathMatchers("/api/test/admin").hasRole(ADMIN)
                         .pathMatchers("/api/test/user").hasAnyRole(ADMIN, USER)
                         .pathMatchers("/api/persona/**").hasRole(ADMIN)
                         .pathMatchers("/api/destino/**").hasRole(ADMIN)
-                        .pathMatchers("/api/alojamiento/**").hasRole(ADMIN)
+                        .pathMatchers("/api/alojamiento/**").hasRole(COLLABORATOR)
                         .pathMatchers("/api/vuelo/**").hasRole(ADMIN)
                         .pathMatchers("/api/reserva/**").hasRole(USER)
-                        .pathMatchers("/api/auth/**").permitAll()
                         .anyExchange().authenticated());
 
         http.oauth2ResourceServer()
