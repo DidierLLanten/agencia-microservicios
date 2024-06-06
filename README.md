@@ -20,6 +20,9 @@ Hay dos ramas funcionales
    ## Links 
    - http://localhost:8761/
    - http://keycloak:9090/
+ 
+
+3. En la raiz del proyecto se encuentran los archivos para ejecutar las peticiones en POSTMAN 
 
 ## DEPENDENCIAS
    - Spring Cloud Netflix Eureka
